@@ -1,0 +1,33 @@
+body {
+  background-color: rgb(67, 67, 190);
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container {
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.gamebox {
+  box-sizing: border-box;
+  float: left;
+  width: 33.33%;
+  height: 33.33%;
+  border: 1px solid black;
+  margin: 0;
+  background-color: #FFFFFF;
+}
+
+.score-container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.scorebox {
+  box-sizing: border-box;
+  float: left;
+  width: 33.33%;
+}

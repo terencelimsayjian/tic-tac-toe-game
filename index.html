@@ -7,17 +7,23 @@
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
-    <h2>Player X's turn<h2>
-    <div class="container">
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
+    <h2>Player X's turn</h2>
+    <div class="gamebox-main-container">
+      <div class="gamebox-sub-container" id="gamebox-container1">
+          <div class="gamebox">a</div>
+          <div class="gamebox">b</div>
+          <div class="gamebox">c</div>
+      </div>
+      <div class="gamebox-sub-container" id="gamebox-container2">
+          <div class="gamebox">d</div>
+          <div class="gamebox">e</div>
+          <div class="gamebox">f</div>
+      </div>
+      <div class="gamebox-sub-container" id="gamebox-container3">
+          <div class="gamebox">g</div>
+          <div class="gamebox">h</div>
+          <div class="gamebox">i</div>
+      </div>
     </div>
 
     <div class="score-container">
@@ -41,6 +47,11 @@
       </div>
     </div>
 
-    </div>
+  <div>
+    <button>Reset</button>
+  </div>
+
+  <script src='script.js'></script>
+
   </body>
 </html>

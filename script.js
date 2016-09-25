@@ -69,6 +69,15 @@ function init () {
 
   updateBoard()
 
+  // function mouseOver () {
+  //   this.style.backgroundColor = 'rgba(70, 70, 70, 0.66)'
+  // }
+  //
+  // function mouseOut () {
+  //   this.style.backgroundColor = ''
+  // }
+
+
 // Assign attributes row and col, and add click event listener to gameboxes
   function addAttrAndClick () {
     for (var i = 0; i < 3; i++) {
@@ -95,9 +104,9 @@ function init () {
     }
   }
 
-  function addTie() {
+  function addTie () {
     tiesSpan.textContent = ties
-    if (player = 'X') {
+    if (player === 'X') {
       player = 'O'
     } else {
       player = 'X'
@@ -146,5 +155,4 @@ function init () {
     yWinsSpan.textContent = yWins
     tiesSpan.textContent = ties
   }
-
 }

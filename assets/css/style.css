@@ -1,15 +1,33 @@
 body {
-  background-color: rgb(67, 67, 190);
+  background-image: url('/assets/img/green-chalkboard.jpg');
   width: 600px;
   margin: 0 auto;
   text-align: center;
+  color: white;
+  font-family: 'Caveat Brush', cursive;
 }
 
 button {
   clear: both;
   display: block;
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px 20px;
+  font-size: 30px;
+  border-radius: 5px;
+  font-family: 'Caveat Brush', cursive;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 30px;
 }
 
 .gamebox-main-container {
@@ -23,16 +41,17 @@ button {
   float: left;
   width: 33.33%;
   height: 100%;
-  border: 1px solid black;
+  border: 2px solid white;
   margin: 0;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   font-size: 100px;
+  font-family: 'Architects Daughter', cursive;
 }
 
-.gamebox:hover {
+/*.gamebox:hover {
   box-shadow: 0 0 30px 0 rgba(0, 255, 0, 0.67);
   background-color: rgba(25, 251, 223, 0.63);
-}
+}*/
 
 .gamebox-sub-container {
   width: 100%;
@@ -49,4 +68,44 @@ button {
   box-sizing: border-box;
   float: left;
   width: 33.33%;
+}
+
+#gamebox1 {
+  border-left: none;
+  border-top: none;
+}
+
+#gamebox2 {
+  border-top: none;
+}
+
+#gamebox3 {
+  border-right: none;
+  border-top: none;
+}
+
+#gamebox4 {
+  border-left: none;
+}
+
+#gamebox5 {
+
+}
+
+#gamebox6 {
+  border-right: none;
+}
+
+#gamebox7 {
+  border-left: none;
+  border-bottom: none;
+}
+
+#gamebox8 {
+  border-bottom: none;
+}
+
+#gamebox9 {
+  border-right: none;
+  border-bottom: none;
 }

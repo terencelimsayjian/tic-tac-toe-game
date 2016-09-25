@@ -5,13 +5,17 @@ function init () {
   var player = 'X'
   var xWins = 0
   var yWins = 0
+  var ties = 0
   var xWinsSpan = document.querySelector('#player-x-score')
   var yWinsSpan = document.querySelector('#player-y-score')
+  var tiesSpan = document.querySelector('#ties')
   var button = document.querySelector('button')
+  var filledGameBox = 0;
   button.addEventListener('click', globalReset)
 
   // Win Condition
   function winCondition (arr) {
+    filledGameBox = 0
     for (var i = 0; i < gameBoard.length; i++) {
       // Horizontal win condition
       if (gameBoard[i][0] === player && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
@@ -24,6 +28,17 @@ function init () {
         addScore()
         resetGameBoard()
         alert('Player ' + player + ' wins this round!')
+      }
+      // Tie condition
+      for (var j = 0; j < 3; j++) {
+        if (gameBoard[i][j] === 'X' || gameBoard[i][j] === 'O') {
+          filledGameBox += 1
+          if (filledGameBox === 9) {
+            alert("It's a tie!")
+            ties += 1
+            addTie()
+          }
+        }
       }
     }
 
@@ -80,6 +95,16 @@ function init () {
     }
   }
 
+  function addTie() {
+    tiesSpan.textContent = ties
+    if (player = 'X') {
+      player = 'O'
+    } else {
+      player = 'X'
+    }
+    resetGameBoard()
+  }
+
   // Dictates behaviour when gamebox is clicked
   function playerMove () {
     if (this.textContent === '') {
@@ -99,6 +124,7 @@ function init () {
     }
   }
 
+  // Clear the gameboard to prepare for a new round
   function resetGameBoard () {
     for (var i = 0; i < 3; i++) {
       var gameContainer = document.querySelector('#gamebox-container' + (i + 1))
@@ -110,11 +136,15 @@ function init () {
     updateBoard()
   }
 
+  // Reset button to reset score
   function globalReset () {
+    resetGameBoard()
     xWins = 0
     yWins = 0
+    ties = 0
     xWinsSpan.textContent = xWins
     yWinsSpan.textContent = yWins
+    tiesSpan.textContent = ties
   }
 
 }

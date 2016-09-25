@@ -10,7 +10,7 @@ function init () {
   var yWinsSpan = document.querySelector('#player-y-score')
   var tiesSpan = document.querySelector('#ties')
   var button = document.querySelector('button')
-  var filledGameBox = 0;
+  var filledGameBox = 0
   button.addEventListener('click', globalReset)
 
   // Win Condition

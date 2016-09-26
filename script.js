@@ -71,14 +71,6 @@ function init () {
 
   updateBoard()
 
-  // function mouseOver () {
-  //   this.style.backgroundColor = 'rgba(70, 70, 70, 0.66)'
-  // }
-  //
-  // function mouseOut () {
-  //   this.style.backgroundColor = ''
-  // }
-
 // Assign attributes row and col, and add click event listener to gameboxes
   function addAttrAndClick () {
     for (var i = 0; i < 3; i++) {

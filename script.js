@@ -20,32 +20,32 @@ function init () {
       // Horizontal win condition
       if (gameBoard[i][0] === player && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
         addScore()
-        resetGameBoard()
         hasWinner = true
         alert('Player ' + player + ' wins this round!')
+        resetGameBoard()
       }
       // Vertical win condition (Can potentially merge with above)
       if (gameBoard[0][i] === player && gameBoard[0][i] === gameBoard[1][i] && gameBoard[1][i] === gameBoard[2][i]) {
         addScore()
-        resetGameBoard()
         hasWinner = true
         alert('Player ' + player + ' wins this round!')
+        resetGameBoard()
       }
     }
 
     // Downward diagonal win condition
     if (gameBoard[0][0] === player && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) {
       addScore()
-      resetGameBoard()
       hasWinner = true
       alert('Player ' + player + ' wins this round!')
+      resetGameBoard()
     }
     // Upward diagonal win condition
     if (gameBoard[0][2] === player && gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0]) {
       addScore()
-      resetGameBoard()
       hasWinner = true
       alert('Player ' + player + ' wins this round!')
+      resetGameBoard()
     }
 
     // Tie condition
@@ -137,12 +137,9 @@ function init () {
 
   // Clear the gameboard to prepare for a new round
   function resetGameBoard () {
-    for (var i = 0; i < 3; i++) {
-      var gameContainer = document.querySelector('#gamebox-container' + (i + 1))
-      for (var j = 0; j < 3; j++) {
-        var gameBox = gameContainer.querySelector('div:nth-child(' + (j + 1) + ')')
-        gameBox.textContent = ''
-      }
+    var gameBox = document.querySelectorAll('.gamebox')
+    for (var i = 0; i < gameBox.length; i++) {
+      gameBox[i].textContent = ''
     }
     updateBoard()
   }

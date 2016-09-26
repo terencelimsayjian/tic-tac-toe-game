@@ -11,34 +11,25 @@ function init () {
   var tiesSpan = document.querySelector('#ties')
   var button = document.querySelector('button')
   var filledGameBox = 0
+  var hasWinner = false
   button.addEventListener('click', globalReset)
 
   // Win Condition
   function winCondition (arr) {
-    filledGameBox = 0
     for (var i = 0; i < gameBoard.length; i++) {
       // Horizontal win condition
       if (gameBoard[i][0] === player && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
         addScore()
         resetGameBoard()
+        hasWinner = true
         alert('Player ' + player + ' wins this round!')
       }
       // Vertical win condition (Can potentially merge with above)
       if (gameBoard[0][i] === player && gameBoard[0][i] === gameBoard[1][i] && gameBoard[1][i] === gameBoard[2][i]) {
         addScore()
         resetGameBoard()
+        hasWinner = true
         alert('Player ' + player + ' wins this round!')
-      }
-      // Tie condition
-      for (var j = 0; j < 3; j++) {
-        if (gameBoard[i][j] === 'X' || gameBoard[i][j] === 'O') {
-          filledGameBox += 1
-          if (filledGameBox === 9) {
-            alert("It's a tie!")
-            ties += 1
-            addTie()
-          }
-        }
       }
     }
 
@@ -46,13 +37,24 @@ function init () {
     if (gameBoard[0][0] === player && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) {
       addScore()
       resetGameBoard()
+      hasWinner = true
       alert('Player ' + player + ' wins this round!')
     }
     // Upward diagonal win condition
     if (gameBoard[0][2] === player && gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0]) {
       addScore()
       resetGameBoard()
+      hasWinner = true
       alert('Player ' + player + ' wins this round!')
+    }
+
+    // Tie condition
+    if (filledGameBox === 9) {
+      if (!hasWinner) {
+        alert("It's a tie!")
+        ties += 1
+        addTie()
+      }
     }
   }
 
@@ -76,7 +78,6 @@ function init () {
   // function mouseOut () {
   //   this.style.backgroundColor = ''
   // }
-
 
 // Assign attributes row and col, and add click event listener to gameboxes
   function addAttrAndClick () {
@@ -116,6 +117,7 @@ function init () {
 
   // Dictates behaviour when gamebox is clicked
   function playerMove () {
+    filledGameBox += 1
     if (this.textContent === '') {
       if (player === 'X') {
         this.textContent = 'X'
